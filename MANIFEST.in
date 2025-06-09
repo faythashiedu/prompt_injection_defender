@@ -1,0 +1,4 @@
+include promptinjection_defender/prompt_patterns.json
+include promptinjection_defender/domains/*.json
+include LICENSE
+include README.md

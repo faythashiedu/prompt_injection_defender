@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptinjection-defender"
+version = "0.1.0"
+description = "A Python package for detecting and mitigating prompt injection in LLM-based chatbots."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name="Damilola Faith Ashiedu", email="faithashiedu9@gmail.com" }
+]
+keywords = ["prompt injection", "chatbot", "AI security", "LLMs"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.12"
+]
+dependencies = ["sentence-transformers>=2.2.0",
+    "numpy>=1.21.0",
+    "scikit-learn>=1.0.0",
+    "importlib-resources>=5.0.0; python_version<'3.9'"
+    ]
+
+[tool.setuptools]
+packages = ["promptinjection_defender"]
+include-package-data = true
