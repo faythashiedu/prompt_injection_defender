@@ -57,6 +57,39 @@ if  malicious:
 save_flagged_query(f"{user_message} | {reason}")
 return  jsonify({"error": reason}), 400
 ``` 
+## 📝 Logging Flagged Queries
+
+To keep track of potential prompt injection attempts, you can log flagged queries into a database.  
+Example with **MySQL**:
+
+```python
+def save_flagged_query(input_text: str):
+    db = get_db_connection()
+    cursor = db.cursor()
+    cursor.execute(
+        "INSERT INTO flagged_queries (input_text) VALUES (%s)",
+        (input_text,)
+    )
+    db.commit()
+    cursor.close()
+    db.close()
+```
+Then, in your chatbot logic:
+
+``` bash 
+malicious, reason = financial_defender.analyze(cleaned_input) if malicious:
+    save_flagged_query(f"{user_message} | {reason}") 
+    return jsonify({"error": reason}), 400
+
+```
+
+This way:
+
+-   🚨 Every suspicious query is stored with the attack reason.
+    
+-   📊 You can review logs later to **improve your defenses**.
+    
+-   🔐 Adds accountability and transparency for audit purposes.
 
 ## Domains Supported
 
