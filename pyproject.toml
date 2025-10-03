@@ -19,7 +19,18 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3.12"
 ]
-dependencies = []
+
+dependencies = [
+    "numpy>=2.0.0",
+    "scikit-learn>=1.5.0",
+    "sentence-transformers>=4.1.0",
+]
+
+[project.optional-dependencies]
+semantic = [
+    "onnx>=1.17.0",
+    "onnxruntime>=1.21.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]

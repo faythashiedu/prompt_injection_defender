@@ -19,8 +19,8 @@ Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/faythashiedu/prompt_injection_defender.git
-cd promptinjection-defender
-pip install .
+cd prompt_injection_defender
+pip install -r requirements.txt
 ```
 Or install directly with pip (when published):
 
